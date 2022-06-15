@@ -1,4 +1,14 @@
-// function for images//
+// declaring funtion for background tiles //
+
+function tile(url, left, bottom, width, height){
+    for(let h = 0; h < height; h++){
+        for(let w = 0; w < width; w++){
+            newImage(url, left + w*100, bottom+h*100)
+        }
+    }
+}
+// declaring function for images //
+
 function newImage(url, left, bottom){
     let object = document.createElement('img')
     object.src = url
@@ -8,7 +18,8 @@ function newImage(url, left, bottom){
     document.body.append(object)
     return object
 }
-//function for items//
+// declaring function for items //
+
 function newItem(url, left, bottom){
     let object = newImage(url, left, bottom)
     
@@ -16,6 +27,17 @@ function newItem(url, left, bottom){
         object.remove()
     })
 }
+
+// variables for background //
+
+let horizon = window.innerHeight / 1.75
+let sky = window.innerHeight-horizon
+let grass = horizon
+
+// using functions //
+
+tile('assets/sky.png', 0, horizon, window.innerWidth/100, sky/100)
+tile('assets/grass.png', 0, 0, window.innerWidth/100, grass/100)
 
 newImage('assets/green-character.gif', 100, 100)
 newImage('assets/pine-tree.png', 450, 200)
