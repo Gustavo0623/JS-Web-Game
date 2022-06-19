@@ -19,55 +19,63 @@ function newImage(url, left, bottom){
     return object
 }
 
-function newImage2(url, left, bottom){
-    let object = document.createElement('img')
-    object.src = url
-    object.style.position = 'fixed'
-    object.style.left = left + '%'
-    object.style.bottom = bottom + '%'
-    document.body.append(object)
-    return object
-}
-// declaring function for items //
-
-function newItem(url, left, bottom){
-    let object = newImage2(url, left, bottom)
-    
-    object.addEventListener('dblclick', function(){
-        object.remove()
-    })
-}
-
 // variables for background //
 
 let horizon = window.innerHeight / 1.75
 let sky = window.innerHeight-horizon
 let grass = horizon
 
+// added from callback practice
+
+const inventory = newInventory()
+move(inventory).to(0, 0)
+
+const character = newImage('assets/green-character/static.gif')
+character.style.zIndex = 1
+
+function handleDirectionChange(direction){
+    if(direction === null){
+        character.src = 'assets/green-character/static.gif'
+    }
+    if(direction === 'west'){
+        character.src = 'assets/green-character/west.gif'
+    }
+    if(direction === 'east'){
+        character.src = 'assets/green-character/east.gif'
+    }
+    if(direction === 'south'){
+        character.src = 'assets/green-character/south.gif'
+    }
+    if(direction === 'north'){
+        character.src = 'assets/green-character/north.gif'
+    }
+}
+
+move(character).withArrowKeys(675, 210, handleDirectionChange)
+
 // using functions //
 
 tile('assets/sky.png', 0, horizon, window.innerWidth/100, sky/100)
 tile('assets/grass.png', 0, 0, window.innerWidth/100, grass/100)
 
-newImage2('assets/green-character.gif', 15, 5)
-newImage2('assets/pine-tree.png', 87, 29)
-newImage2('assets/pine-tree.png', 87, 0)
-newImage2('assets/pine-tree.png', 0, 29)
-newImage2('assets/pine-tree.png', 0, 0)
-newImage2('assets/tree.png', 12, 50)
-newImage2('assets/tree.png', 22, 50)
-newImage2('assets/tree.png', 32, 50)
-newImage2('assets/tree.png', 42, 50)
-newImage2('assets/tree.png', 52, 50)
-newImage2('assets/tree.png', 62, 50)
-newImage2('assets/tree.png', 72, 50)
-newImage2('assets/tree.png', 82, 50)
-newImage2('assets/pillar.png', 25, 13)
-newImage2('assets/pillar.png', 65, 13)
-newImage2('assets/crate.png', 25, 20)
-newImage2('assets/crate.png', 75, 20)
-newImage2('assets/well.png', 47, 20)
+move(newImage('assets/pine-tree.png')).to (1300, 350)
+move(newImage('assets/pine-tree.png')).to (0, 350)
+move(newImage('assets/tree.png')).to (100, 350)
+move(newImage('assets/tree.png')).to (220, 350)
+move(newImage('assets/tree.png')).to (340, 350)
+move(newImage('assets/tree.png')).to (460, 350)
+move(newImage('assets/tree.png')).to (580, 350)
+move(newImage('assets/tree.png')).to (700, 350)
+move(newImage('assets/tree.png')).to (820, 350)
+move(newImage('assets/tree.png')).to (940, 350)
+move(newImage('assets/tree.png')).to (1060, 350)
+move(newImage('assets/tree.png')).to (1180, 350)
+move(newImage('assets/pillar.png')).to (300, 120)
+move(newImage('assets/pillar.png')).to (950, 120)
+move(newImage('assets/crate.png')).to (280, 170)
+move(newImage('assets/crate.png')).to (1080, 170)
+move(newImage('assets/well.png')).to (650, 100)
 
-newItem('assets/sword.png', 38, 40)
-newItem('assets/sheild.png', 48, 40)
-newItem('assets/staff.png', 58, 40)
+move(newItem('assets/sword.png')).to (400, 200)
+move(newItem('assets/sheild.png')).to (670, 300)
+move(newItem('assets/staff.png')).to (950, 200)
