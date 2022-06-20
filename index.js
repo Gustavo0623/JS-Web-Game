@@ -50,26 +50,43 @@ function handleDirectionChange(direction){
         character.src = 'assets/green-character/north.gif'
     }
 }
+// dialogue function 
+const initialGreet = newText('Hello')
+
+function newText(dialogue){
+    text = document.createElement('p')
+    text.textContent= dialogue
+    text.style.display= 'flex'
+    text.style.backgroundColor= '#fff'
+    text.style.fontSize= '12px'
+    text.style.borderRadius= '30px'
+    document.body.append(text)
+    text.style.zIndex= 2
+    text.style.padding= '5px'
+
+    return text
+}
+// using functions //
+
+// Greet not responding properly when hitting barrier needs adjusting or maybe add it to a div that is the same size as character image? //
+// move(initialGreet).withArrowKeys(680, 270, handleDirectionChange)
 
 move(character).withArrowKeys(675, 210, handleDirectionChange)
-
-// using functions //
 
 tile('assets/sky.png', 0, horizon, window.innerWidth/100, sky/100)
 tile('assets/grass.png', 0, 0, window.innerWidth/100, grass/100)
 
 move(newImage('assets/pine-tree.png')).to (1300, 350)
 move(newImage('assets/pine-tree.png')).to (0, 350)
-move(newImage('assets/tree.png')).to (100, 350)
-move(newImage('assets/tree.png')).to (220, 350)
-move(newImage('assets/tree.png')).to (340, 350)
-move(newImage('assets/tree.png')).to (460, 350)
-move(newImage('assets/tree.png')).to (580, 350)
-move(newImage('assets/tree.png')).to (700, 350)
-move(newImage('assets/tree.png')).to (820, 350)
-move(newImage('assets/tree.png')).to (940, 350)
+move(newImage('assets/tree.png')).to (150, 350)
+move(newImage('assets/tree.png')).to (280, 350)
+move(newImage('assets/tree.png')).to (410, 350)
+move(newImage('assets/tree.png')).to (540, 350)
+move(newImage('assets/tree.png')).to (670, 350)
+move(newImage('assets/tree.png')).to (800, 350)
+move(newImage('assets/tree.png')).to (930, 350)
 move(newImage('assets/tree.png')).to (1060, 350)
-move(newImage('assets/tree.png')).to (1180, 350)
+move(newImage('assets/tree.png')).to (1190, 350)
 move(newImage('assets/pillar.png')).to (300, 120)
 move(newImage('assets/pillar.png')).to (950, 120)
 move(newImage('assets/crate.png')).to (280, 170)
